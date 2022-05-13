@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <button @click="left" v-show="index>0">-</button>
+        <img :src="imgUrl">
+        <button @click="right" v-show="index<4">+</button>
+    </div>
+
+    <script type="text/javascript" >
+        imgs=[
+            "../img/1.jpg",
+            "../img/2.jpg",
+            "../img/3.jpg",
+            "../img/4.jpg",
+            "../img/5.jpg",
+        ]
+    
+        const vm=new Vue({
+            el:'#root',
+            data(){
+                return {
+                    imgUrl:imgs[0],
+                    index:0
+                }
+            },
+            methods:{
+                left(){
+                    this.index=(this.index+5-1)%5
+                    this.imgUrl=imgs[this.index]
+                },
+                right(){
+                    this.index=(this.index+1)%5
+                    this.imgUrl=imgs[this.index]
+                }
+            }
+        })
+    </script>
+</body>
+</html>

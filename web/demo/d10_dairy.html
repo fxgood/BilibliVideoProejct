@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="book">
+        <input placeholder="请输入待办事项" @keyup.enter="append" autofocus="true"><br>
+        <span v-for="(item,index) in content">{{index+1}}. {{item}}<button v-show="" @click="destory(index)">x</button><br></span>
+        <span v-show="content.length>0">一共{{content.length}}条记录</span>
+        <a href="javascript:void(0)" @click="clearAll">clear</a>
+        
+    </div>
+
+    <script type="text/javascript">
+        const vm=new Vue({
+            el:'#book',
+            data(){
+                return {
+                    content:[]
+                }
+            },
+            methods: {
+                clearAll(){
+                    this.content=[]
+                },
+                append(){
+                    if(event.target.value!='')
+                        this.content.push(event.target.value)
+                    event.target.value=''
+                },
+                destory(index){
+                    this.content.splice(index,1)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

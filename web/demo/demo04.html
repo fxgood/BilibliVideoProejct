@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        姓：<input type="text" v-model:value="lastName" ><br>
+        名: <input type="text" v-model:value="firstName"><br>
+        全名：<span>{{lastName.slice(0,3)+firstName}}</span>
+    </div>
+
+    <script type="text/javascript">
+        const vm=new Vue({
+            el:'#demo',
+            data(){
+                return {
+                    lastName:'张',
+                    firstName:'三'
+                }
+            },
+            computed
+        })
+    </script>
+</body>
+</html>

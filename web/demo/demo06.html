@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/axios.js"></script>
+</head>
+<body>
+    
+    <div id="content">
+        账号<input placeholder="输入手机号" v-model="phone"><br>
+        密码<input placeholder="输入密码" v-model="password"><br>
+        <button @click="login">登录</button>
+
+    </div>
+
+    <script type="text/javascript">
+        axios.defaults.baseURL="localhost://8080"
+        const vm=new Vue({
+            el:'content',
+            data(){
+                return {
+                    phone:'',
+                    password:'',
+                    user:{
+                        phone:'',
+                        password
+                    }
+                }
+            },
+            methods: {
+                async login(){
+                    result=await axios.post('/user-tokens',this.user)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>{{title.toUpperCase()}}</h1>
+        <h1>{{Date.now()}}</h1>
+        <hr>
+        <a :href="url" target="_blank">百度一下</a>
+        <h1>{{person.name}}</h1>
+        <h1>{{person.address}}</h1>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false //关闭生产环境提示
+        new Vue({
+            el: "#root",
+            data: {
+                title: 'aabbc',
+                url:"http://www.baidu.com",
+                person:{
+                    name:"张三",
+                    address:'南京'
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
